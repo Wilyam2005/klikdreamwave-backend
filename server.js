@@ -77,18 +77,22 @@ app.get('/*splat', (req, res) => {
 // ==========================================
 const printWorker = require('./src/services/printWorker');
 
-app.listen(PORT, () => {
-    console.log(`✅ Server berjalan di port ${PORT}`);
-    console.log(`🌐 URL: ${process.env.BASE_URL || 'http://localhost:' + PORT}`);
+if (process.env.VERCEL) {
+    console.log('Serverless mode aktif (Vercel)');
+} else {
+    app.listen(PORT, () => {
+        console.log(`✅ Server berjalan di port ${PORT}`);
+        console.log(`🌐 URL: ${process.env.BASE_URL || 'http://localhost:' + PORT}`);
 
-    // Print Worker hanya dijalankan di Windows (kiosk fisik)
-    if (process.platform === 'win32') {
-        printWorker.startWorker();
-        console.log('🖨️ Print Worker aktif (Windows mode)');
-    } else {
-        console.log('ℹ️ Print Worker dinonaktifkan (Linux/Hosting mode)');
-    }
-});
+        // Print Worker hanya dijalankan di Windows (kiosk fisik)
+        if (process.platform === 'win32') {
+            printWorker.startWorker();
+            console.log('🖨️ Print Worker aktif (Windows mode)');
+        } else {
+            console.log('ℹ️ Print Worker dinonaktifkan (Linux/Hosting mode)');
+        }
+    });
+}
 
 // ✅ Wajib untuk serverless deployment (Vercel)
 module.exports = app;

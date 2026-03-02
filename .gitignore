@@ -1,0 +1,14 @@
+node_modules/
+.env.local
+*.log
+uploads/
+check_db*.js
+test_*.js
+create_admin*.js
+backup_*.js
+out.txt
+tmp.txt
+tables.txt
+db_info.*
+error.txt
+frames_schema.json

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/logo_asset/favicon klikdreamwave.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klikdreamwave Admin</title>
+  <script>
+    window.addEventListener('error', function (e) {
+      document.body.innerHTML += '<div style="position:fixed;top:0;left:0;z-index:9999;background:red;color:white;padding:20px;width:100%;">' + e.error.stack + '</div>';
+    });
+    window.addEventListener('unhandledrejection', function (e) {
+      document.body.innerHTML += '<div style="position:fixed;top:50px;left:0;z-index:9999;background:orange;color:white;padding:20px;width:100%;">' + e.reason.stack + '</div>';
+    });
+  </script>
+  <script type="module" crossorigin src="/assets/index-BeaWY36s.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BqbOmZzT.css">
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

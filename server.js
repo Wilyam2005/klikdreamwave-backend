@@ -89,3 +89,6 @@ app.listen(PORT, () => {
         console.log('ℹ️ Print Worker dinonaktifkan (Linux/Hosting mode)');
     }
 });
+
+// ✅ Wajib untuk serverless deployment (Vercel)
+module.exports = app;
